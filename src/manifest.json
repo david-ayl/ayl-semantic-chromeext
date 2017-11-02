@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Adyoulike Native Semantic Technology",
+  "name": "Adyoulike Native AI",
   "description": "Provide semantic information about any webpage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "permissions": [
     "storage",
     "tabs",

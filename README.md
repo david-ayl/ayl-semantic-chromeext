@@ -1,6 +1,6 @@
-# Adyoulike Chrome Extension
+# Adyoulike Semantic Chrome Extension
 
-Inject campaign and placement at the selected location.
+Check page semantic
 
 
 ## install dev env

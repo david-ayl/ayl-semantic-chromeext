@@ -70,17 +70,23 @@ var display_concepts = function(concepts) {
 
 var display_entities = function(entities) {
 
-  entities = entities.slice(0, 5);
-
-  $("#entities .result-wrapper").empty();
-
-  for(var i in entities) {
-    var resultText = entities[i].text;
-    var resultRelevance = entities[i].relevance;
-    resultRelevance = percent(resultRelevance, "%");
-    var resultSentiment = entities[i].sentiment.type
-    var result_line = $("<div class='item'><span class='item_title'>" + resultText + ":</span><span class='item_result'>" + resultRelevance + "</span><span class='item_title'>Sentiment :</span><span class='item_result'>" + resultSentiment + "</span></div>");
+  if(entities.length == 0) {
+    var result_line = $("<div class='item'><span class='item_title'>Unable to retrieve entities</span></div>");
     $("#entities .result_wrapper").append(result_line);
+  }
+  else{
+    entities = entities.slice(0, 5);
+
+    $("#entities .result-wrapper").empty();
+
+    for(var i in entities) {
+      var resultText = entities[i].text;
+      var resultRelevance = entities[i].relevance;
+      resultRelevance = percent(resultRelevance, "%");
+      var resultSentiment = entities[i].sentiment.type
+      var result_line = $("<div class='item'><span class='item_title'>" + resultText + ":</span><span class='item_result'>" + resultRelevance + "</span><span class='item_title'>Sentiment :</span><span class='item_result'>" + resultSentiment + "</span></div>");
+      $("#entities .result_wrapper").append(result_line);
+    }
   }
 
 }
