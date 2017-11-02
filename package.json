@@ -1,0 +1,25 @@
+{
+  "name": "native-semantic-technology",
+  "version": "0.0.1",
+  "description": "Native Semantic Technology Adyoulike Chrome Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "prod": "gulp --env=prod prod"
+  },
+  "author": "david tessier",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "pump": "^1.0.2"
+  }
+}
