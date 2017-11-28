@@ -1,117 +1,62 @@
+@import "./parts/loader.scss";
+@import "./parts/colors.scss";
+
+
 body{
   min-height:160px;
   transition-duration: 0.3s;
+  padding:0;
+  margin:0;
+  font-family:"Muli", sans-serif;
+  font-weight:lighter;
+  &.dark_theme{
+    background-color:#000000;
+  }
 }
 
 html{
-  width:266px;
+  width:285px;
   min-height:200px;
-  font-family:"Muli", sans-serif;
+  box-sizing:border-box;
+  padding:0 30px;
 }
-
+.item-wrapper{
+  margin:0 0 50px 0;
+}
 .version{
   color:#cccccc;
   position:absolute;
   top:0px;
   left:2px;
 }
+
+
 .logo_wrapper{
   margin:30px 0 0 0;
+  padding:0 0 20px 0;
+  border-bottom:1px solid $border;
   .adyoulike_logo{
-    margin:20px 0 0 0;
+    margin:0;
     display:block;
-    width:50%;
+    width:145px;
     float:left;
   }
-  .watson_logo {
-    display:block;
-    width:40%;
-    float:right
+  .ext_name{
+    float:left;
+    width:calc(100% - 152px);
+    background-color:$blue;
+    color:#ffffff;
+    line-height:20px;
+    margin:-4px 0 0 7px;
+    padding:3px 0;
+    font-size:11px;
+    text-align:center;
+    font-weight:lighter;
   }
   &:after{
     content:"";
     display:block;
     clear:both;
-  }
-}
-
-.loader-text {
-  font-size: 22px;
-  font-weight: 100;
-  margin: 0 0 24px;
-  text-align:center;
-}
-
-/* GRID */
-.loader-container {
-  display:none;
-  padding:40px 0 0 0;
-  margin:0 auto;
-  width:200px;
-}
-.loader-container.loading{
-  display:block;
-}
-/* loader-progress */
-.loader-progress {
-  background-color: #cfcfcf;
-  height: 3px;
-  position: relative;
-  width: 200px;
-}
-.loader-progress-bar {
-  animation-duration: 3s;
-  animation-name:none;
-  background-color:#000;
-  height: 100%;
-  position: relative;
-  animation-iteration-count: infinite;
-}
-.loader-container.loading .loader-progress-bar{
-  animation-name: width;
-}
-
-/* ANIMATIONS */
-@-webkit-keyframes width {
-  0%, 100% {
-    transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
-  }
-  0% {
-    width: 0;
-    left: 50%;
-  }
-  50% {
-    width: 100%;
-    left: 0%;
-  }
-  80% {
-    width: 0%;
-    left: 50%;
-  }
-  100% {
-    width: 0%;
-    left: 50%;
-  }
-}
-@keyframes width {
-  0%, 100% {
-    transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
-  }
-  0% {
-    width: 0;
-    left: 50%;
-  }
-  50% {
-    width: 100%;
-    left: 0%;
-  }
-  80% {
-    width: 0%;
-    left: 50%;
-  }
-  100% {
-    width: 0%;
-    left: 50%;
   }
 }
 
@@ -120,30 +65,99 @@ html{
 }
 
 #launch-semantic{
+  font-weight:lighter;
   cursor:pointer;
   margin:50px auto 70px auto;
   text-align: center;
-  background-color: #000000;
+  background-color: $blue;
   color: #ffffff;
   text-transform: uppercase;
   padding: 10px;
   width: 80%;
+  font-weight:900;
 }
 
 .title_wrapper{
+  font-family:"Muli";
   background-color: #199cb6;
   color:#ffffff;
   margin:20px 0 10px 0;
-  padding:5px 0 4px 5px;
+  padding:2px 0 2px 5px;
+  font-size:17px;
+  text-transform:capitalize;
 }
 .item{
   margin:0;
 }
+.item_line{
+  color:#ffffff;
+  font-size:15px;
+  display:flex;
+  align-items: center;
+  padding:0 0 5px 0;
+  border-bottom:2px solid $border;
+  position:relative;
+  .percent_line{
+    display:block;
+    transition-duration:0.3s;
+    height:2px;
+    width:0%;
+    position:absolute;
+    background-color: #ffffff;
+    bottom:-2px;
+    left:0;
+  }
+}
+.item_title{
+  width:70%;
+}
 .item_result{
-  padding:0 0 0 10px;
-  &:after{
+  width:30%;
+  text-align:right;
+}
+.sentiment_line{
+  margin:0 0 20px 0;
+}
+.item_sentiment{
+  margin:8px 0 0 0;
+  font-size:13px;
+  padding:0 0 0 25px;
+  position:relative;
+  height:18px;
+  display:block;
+  line-height:18px;
+  &:before{
     content:"";
     display:block;
-    clear:both;
+    position:absolute;
+    width:18px;
+    height:18px;
+    left:0;
+    top:0;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  &[data-smiley='positive'] {
+    color:$blue;
+    &:before{
+      background-image:url("../images/positive.png");
+    }
+  }
+  &[data-smiley='neutral'] {
+    color:$neutral;
+    &:before{
+      background-image:url("../images/neutral.png");
+    }
+  }
+  &[data-smiley='negative'] {
+    color:#ffffff;
+    &:before{
+      background-image:url("../images/negative.png");
+    }
+  }
+}
+#taxonomy, #concepts, #emotions{
+  .item_line{
+    margin:0 0 30px 0;
   }
 }

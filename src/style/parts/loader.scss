@@ -1,0 +1,82 @@
+@import "./colors.scss";
+
+.loader-text {
+  font-size: 22px;
+  font-weight: 100;
+  margin: 0 0 24px;
+  text-align:center;
+  color: #ffffff;;
+}
+
+/* GRID */
+.loader-container {
+  display:none;
+  padding:40px 0 0 0;
+  margin:0 auto;
+  width:200px;
+}
+.loader-container.loading{
+  display:block;
+}
+/* loader-progress */
+.loader-progress {
+  background-color: #808080;
+  height: 3px;
+  position: relative;
+  width: 200px;
+}
+.loader-progress-bar {
+  animation-duration: 3s;
+  animation-name:none;
+  background-color: #ffffff;
+  height: 100%;
+  position: relative;
+  animation-iteration-count: infinite;
+}
+.loader-container.loading .loader-progress-bar{
+  animation-name: width;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes width {
+  0%, 100% {
+    transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+  }
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  80% {
+    width: 0%;
+    left: 50%;
+  }
+  100% {
+    width: 0%;
+    left: 50%;
+  }
+}
+@keyframes width {
+  0%, 100% {
+    transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+  }
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  50% {
+    width: 100%;
+    left: 0%;
+  }
+  80% {
+    width: 0%;
+    left: 50%;
+  }
+  100% {
+    width: 0%;
+    left: 50%;
+  }
+}
