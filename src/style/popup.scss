@@ -23,6 +23,9 @@ body{
       .title_wrapper{
         background-color:$blue;
       }
+      .item_result{
+        color:$blue;
+      }
       #launch-semantic{
         border-color: $blue;
         color: $blue;
@@ -52,6 +55,9 @@ body{
       }
       .item_line{
         border-color:$border;
+        .item_title{
+          color:$blue;
+        }
         .percent_line{
           background-color: $blue;
         }
@@ -60,6 +66,9 @@ body{
     &.orange_theme{
       .title_wrapper{
         background-color:$orange;
+      }
+      .item_result{
+        color:$orange;
       }
       #launch-semantic{
         border-color: $orange;
@@ -127,6 +136,9 @@ body{
       .item_title{
         color:$blue;
       }
+      .item_result{
+        color:$blue;
+      }
       #launch-semantic{
         border-color: $blue;
         color: $blue;
@@ -166,6 +178,9 @@ body{
         color:$orange;
       }
       .item_title{
+        color:$orange;
+      }
+      .item_result{
         color:$orange;
       }
       #launch-semantic{
@@ -231,12 +246,6 @@ html{
 .item-wrapper{
   margin:0 0 50px 0;
 }
-.version{
-  color:#cccccc;
-  position:absolute;
-  top:0px;
-  left:2px;
-}
 
 .adyoulike_logo{
   margin:0;
@@ -270,6 +279,7 @@ html{
 
 #result-wrapper{
   display:none;
+  padding:0 0 80px 0;
 }
 
 #launch-semantic{
@@ -303,7 +313,7 @@ html{
     left:50%;
     transform:translateX(-50%) translateY(-50%) scale(0);
     transition-duration:0.5s;
-    background-color:#ffffff;
+    background-color:rgba(255,255,255,0.5);
     border-radius:50%;
     z-index:-1;
   }
@@ -331,7 +341,6 @@ html{
   position:relative;
   .percent_line{
     display:block;
-    transition-duration:0.3s;
     height:2px;
     width:0%;
     position:absolute;
@@ -397,5 +406,150 @@ html{
 #taxonomy, #concepts, #emotions{
   .item_line{
     margin:0 0 30px 0;
+  }
+}
+
+#footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  box-sizing: border-box;
+  padding: 10px 30px 0 30px;
+  transition-duration:0.3s;
+}
+.icon{
+  &.icon_blue{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background-color: $blue;
+    margin:3px 0 0 0;
+    & + .color_name{
+      line-height:20px;
+      color:$blue;
+    }
+  }
+  &.icon_orange{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background-color: $orange;
+    margin:3px 0 0 0;
+    & + .color_name{
+      line-height:20px;
+      color:$orange;
+    }
+  }
+}
+.color_switcher_line{
+  display:none;
+  cursor:pointer;
+  .color_name{
+    float:left;
+    padding:0 0 0 7px;
+    font-size:16px;
+    line-height:16px;
+    transition-duration:0.3s;
+  }
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+  }
+}
+.dark_theme{
+  #footer{
+    background-color: #000000;
+  }
+  .legal{
+    color:$darkgrey;
+  }
+  .sun_line{
+    display:inline-block;
+    .color_name{
+      color:$darkgrey;
+    }
+    &:hover{
+      .color_name{
+      color:#ffffff;
+      }
+      .icon{
+        background-color:#ffffff;
+      }
+    }
+  }
+}
+
+.loading ~ #footer{
+  display:none;
+}
+.light_theme{
+  #footer{
+    background-color: #ffff;
+  }
+  .legal{
+    color:$darkgrey;
+  }
+  .moon_line{
+    display:inline-block;
+    .color_name{
+      color:$darkgrey;
+    }
+    &:hover{
+      .color_name{
+      color:#000000;
+      }
+      .icon{
+        background-color:#000000;
+      }
+    }
+  }
+}
+
+.blue_theme{
+  .color_switcher_line.orange_color{
+    display:block;
+  }
+}
+.orange_theme{
+  .color_switcher_line.blue_color{
+    display:block;
+  }
+}
+.color_switcher_line.blue_color{
+  display:none;
+  float:right;
+}
+.color_switcher_line.orange_color{
+  display:none;
+  float:right;
+}
+.moon_line{
+  color:$darkgrey;
+}
+.sun_line{
+  color:#ffffff;
+}
+.legal{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.icon{
+  float:left;
+  width:24px;
+  height:24px;
+  &.icon_moon{
+    -webkit-mask: url(../images/moon.svg);
+    -webkit-mask-size: cover;
+    background-color:$darkgrey;
+    transition-duration:0.3s;
+  }
+  &.icon_sun{
+    -webkit-mask: url(../images/sun.svg);
+    -webkit-mask-size: cover;
+    background-color:$darkgrey;
+    transition-duration:0.3s;
   }
 }
