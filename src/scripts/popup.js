@@ -76,7 +76,7 @@ var display_keywords = function(keywords) {
     else {
       resultSentiment = "";
     }
-    var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + ":</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div><div class='sentiment_line'><span class='item_sentiment' data-smiley='" + resultSentiment + "'>" + resultSentiment + " sentiment</span></div></div>");
+    var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + "&nsbp;:</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div><div class='sentiment_line'><span class='item_sentiment' data-smiley='" + resultSentiment + "'>" + resultSentiment + " sentiment</span></div></div>");
     $("#keywords .result_wrapper").append(result_line);
   }
 
@@ -93,7 +93,7 @@ var display_emotions = function(emotions) {
 
     for(prop in emotions) {
       var result = percent(emotions[prop], "");
-      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + prop + ":</span><span class='item_result' data-percent='" + result + "'>0</span><span class='percent_line'></span></div></div>");
+      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + prop + "&nsbp;:</span><span class='item_result' data-percent='" + result + "'>0</span><span class='percent_line'></span></div></div>");
       $("#emotions .result_wrapper").append(result_line);
     };
   }
@@ -115,7 +115,7 @@ var display_concepts = function(concepts) {
       var resultText = concepts[i]["text"];
       var resultRelevance = concepts[i]["relevance"];
       resultRelevance = percent(resultRelevance, "");
-      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + ":</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div></div>");
+      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + "&nsbp;:</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div></div>");
       $("#concepts .result_wrapper").append(result_line);
     }
   }
@@ -138,7 +138,7 @@ var display_entities = function(entities) {
       var resultRelevance = entities[i].relevance;
       resultRelevance = percent(resultRelevance, "");
       var resultSentiment = entities[i].sentiment.type
-      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + ":</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div><div class='sentiment_line'><span class='item_sentiment' data-smiley='" + resultSentiment + "'>Sentiment :</span><span class='item_result'>" + resultSentiment + "</span></div></div>");
+      var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultText + "&nsbp;:</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div><div class='sentiment_line'><span class='item_sentiment' data-smiley='" + resultSentiment + "'>" + resultSentiment + " sentiment</span></div></div>");
       $("#entities .result_wrapper").append(result_line);
     }
   }
@@ -153,7 +153,7 @@ var display_taxonomy = function(taxonomy) {
     var resultLabel = taxonomy[i].label;
     var resultScore = taxonomy[i].score;
     resultScore = percent(resultScore, "");
-    var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultLabel + ":</span><span class='item_result' data-percent='" + resultScore + "'>0</span><span class='percent_line'></span></div></div>");
+    var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + resultLabel + "&nsbp;:</span><span class='item_result' data-percent='" + resultScore + "'>0</span><span class='percent_line'></span></div></div>");
     $("#taxonomy .result_wrapper").append(result_line);
   }
 
@@ -181,7 +181,31 @@ var percent = function(number, unit) {
 
 var countTo = function(target) {
 
-  // TODO count
+  if($(target).hasClass("done") || $(target).hasClass("iscounting")) {
+    return
+  }
+
+  var start = 0;
+  var to = $(target).attr("data-percent");
+
+  var count = setInterval(function() {
+
+    $(target).addClass("iscounting");
+
+    if(start > to) {
+      $(target).next(".percent_line").width(start + "px");
+      $(target).removeClass("iscounting").addClass("done");
+      $(target).closest(".item_line").next(".sentiment_line").addClass("show");
+      clearInterval(count);
+    }
+
+    $(target).text(start + "%");
+
+    start ++;
+
+  }, 10);
+
+  count;
 
 }
 
