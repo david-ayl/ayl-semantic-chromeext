@@ -6,92 +6,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" type="text/css" href="../style/popup.css">
   </head>
-  <body class="dark_theme orange_theme">
-    <div class="logo_wrapper">
-      <img class="adyoulike_logo logo_dark" src="../images/logo-dark.png">
-      <img class="adyoulike_logo logo_light" src="../images/logo-light.png">
-      <img class="watson_logo logo_dark" src="../images/watson-logo_dark.png">
-      <img class="watson_logo logo_light" src="../images/watson-logo_light.png">
-    </div>
-
-    <div id="launch-semantic">Launch semantic analysis<span class="pop"></span></div>
-
-    <div class="loader-container">
-      <div class="loader-text">Please wait...</div>
-      <div class="loader-progress">
-        <div class="loader-progress-bar">
-          <div class="loader-progress-shadow"></div>
-        </div>
+  <body class="orange_theme">
+      <div class="logo_wrapper">
+        <img class="adyoulike_logo logo_dark" src="../images/logo-dark.png">
+        <img class="adyoulike_logo logo_light" src="../images/logo-light.png">
+        <img class="watson_logo logo_dark" src="../images/watson-logo_dark.png">
+        <img class="watson_logo logo_light" src="../images/watson-logo_light.png">
       </div>
-    </div>
 
-    <div id="result-wrapper">
+      <div id="launch-semantic">Launch semantic analysis<span class="pop"></span></div>
 
-      <div class="item-wrapper" id="keywords">
-        <div class="title_wrapper">keywords</div>
-        <div class="result_wrapper">
-
+      <div class="loader-container">
+        <div class="loader-text">Please wait...</div>
+        <div class="loader-progress">
+          <div class="loader-progress-bar">
+            <div class="loader-progress-shadow"></div>
+          </div>
         </div>
       </div>
 
-      <div class="item-wrapper" id="taxonomy">
-        <div class="title_wrapper">IAB Categories</div>
-        <div class="result_wrapper">
+      <div id="result-wrapper">
 
+        <div class="item-wrapper" id="keywords">
+          <div class="title_wrapper">keywords</div>
+          <div class="result_wrapper">
+
+          </div>
         </div>
+
+        <div class="item-wrapper" id="taxonomy">
+          <div class="title_wrapper">IAB Categories</div>
+          <div class="result_wrapper">
+
+          </div>
+        </div>
+
+        <div class="item-wrapper" id="entities">
+          <div class="title_wrapper">Entities</div>
+          <div class="result_wrapper">
+
+          </div>
+        </div>
+
+        <div class="item-wrapper" id="concepts">
+          <div class="title_wrapper">Concepts</div>
+          <div class="result_wrapper">
+
+          </div>
+        </div>
+
+        <div class="item-wrapper" id="emotions">
+          <div class="title_wrapper">Emotions</div>
+          <div class="result_wrapper">
+
+          </div>
+        </div>
+
+
       </div>
 
-      <div class="item-wrapper" id="entities">
-        <div class="title_wrapper">Entities</div>
-        <div class="result_wrapper">
+      <div id="footer">
+        <div class="color_switcher">
+          <div class="color_switcher_line moon_line">
+            <div class="icon icon_moon"></div>
+            <span class="color_name">Dark</span>
+          </div>
+          <div class="color_switcher_line sun_line">
+            <div class="icon icon_sun"></div>
+            <span class="color_name">Light</span>
+          </div>
 
+          <div class="color_switcher_line blue_color">
+            <div class="icon icon_blue"></div>
+            <span class="color_name">blue</span>
+          </div>
+          <div class="color_switcher_line orange_color">
+            <div class="icon icon_orange"></div>
+            <span class="color_name">orange</span>
+          </div>
+        </div>
+        <div class="legal">
+          <span class="ext_name">Semantic AI</span>
+          <span class="version">1.1.0</span>
         </div>
       </div>
-
-      <div class="item-wrapper" id="concepts">
-        <div class="title_wrapper">Concepts</div>
-        <div class="result_wrapper">
-
-        </div>
-      </div>
-
-      <div class="item-wrapper" id="emotions">
-        <div class="title_wrapper">Emotions</div>
-        <div class="result_wrapper">
-
-        </div>
-      </div>
-
-
-    </div>
-
-    <div id="footer">
-      <div class="color_switcher">
-        <div class="color_switcher_line moon_line">
-          <div class="icon icon_moon"></div>
-          <span class="color_name">Dark</span>
-        </div>
-        <div class="color_switcher_line sun_line">
-          <div class="icon icon_sun"></div>
-          <span class="color_name">Light</span>
-        </div>
-
-        <div class="color_switcher_line blue_color">
-          <div class="icon icon_blue"></div>
-          <span class="color_name">blue</span>
-        </div>
-        <div class="color_switcher_line orange_color">
-          <div class="icon icon_orange"></div>
-          <span class="color_name">orange</span>
-        </div>
-      </div>
-      <div class="legal">
-        <span class="ext_name">Semantic AI</span>
-        <span class="version">1.1.0</span>
-      </div>
-    </div>
 
     <script src="../scripts/popup.js"></script>
-
   </body>
 </html>

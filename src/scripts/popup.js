@@ -1,5 +1,25 @@
 
 
+$(document).ready(function() {
+
+  var item = JSON.stringify('{"theme" : "dark_theme"}');
+  var colorSettings = localStorage.getItem("AYL_semantic_user_colors");
+
+  if(!colorSettings) {
+    localStorage.setItem("AYL_semantic_user_colors", item);
+  }
+
+  colorSettings = JSON.parse(colorSettings);
+
+  if(colorSettings.theme == "dark_theme") {
+    $("body").removeClass("light_theme").addClass("dark_theme");
+  }
+  else if(colorSettings.theme == "light_theme") {
+    $("body").removeClass("dark_theme").addClass("light_theme");
+  }
+
+});
+
 $(document).on("click", "#launch-semantic", function() {
 
 
@@ -18,11 +38,8 @@ $(document).on("click", "#launch-semantic", function() {
       $(".loader-container").removeClass("loading");
       $("#result-wrapper").show();
 
-      console.log(data);
-
       if(data[Object.keys(data)[0]] == "invalid-url") {
         $("#result-wrapper").empty().append("<span style='text-align:center;display:block;color:red;font-size:20px;line-height:70px;'>Unrecognized url</span>");
-
         return;
       }
 
@@ -66,28 +83,16 @@ $(document).on("click", "#launch-semantic", function() {
 .on("click", ".moon_line", function() {
 
   $("body").removeClass("light_theme").addClass("dark_theme");
+  localStorage.setItem("AYL_semantic_user_colors", '{"theme" : "dark_theme"}')
 
 })
 
 .on("click", ".sun_line", function() {
 
   $("body").removeClass("dark_theme").addClass("light_theme");
-
-})
-
-.on("click", ".color_switcher_line.blue_color", function() {
-
-  $("body").removeClass("orange_theme").addClass("blue_theme");
-
-})
-
-.on("click", ".color_switcher_line.orange_color", function() {
-
-  $("body").removeClass("blue_theme").addClass("orange_theme");
+  localStorage.setItem("AYL_semantic_user_colors", '{"theme" : "light_theme"}')
 
 });
-
-
 
 
 var display_keywords = function(keywords) {

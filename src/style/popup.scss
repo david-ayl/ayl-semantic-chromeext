@@ -525,11 +525,11 @@ html{
   }
 }
 .color_switcher_line.blue_color{
-  display:none;
+  display:none!important;
   float:right;
 }
 .color_switcher_line.orange_color{
-  display:none;
+  display:none!important;
   float:right;
 }
 .moon_line{
