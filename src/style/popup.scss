@@ -351,6 +351,7 @@ html{
 }
 .item_title{
   width:70%;
+  word-wrap:break-word;
 }
 .item_result{
   width:30%;
@@ -384,20 +385,28 @@ html{
     background-size: cover;
     background-position: 50% 50%;
   }
+  &[data-smiley]{
+    &:before{
+      display:none;
+    }
+  }
   &[data-smiley='positive'] {
     &:before{
+      display:block;
       -webkit-mask: url(../images/positive.svg);
       -webkit-mask-size: cover;
     }
   }
   &[data-smiley='neutral'] {
     &:before{
+      display:block;
       -webkit-mask: url(../images/neutral.svg);
       -webkit-mask-size: cover;
     }
   }
   &[data-smiley='negative'] {
     &:before{
+      display:block;
       -webkit-mask: url(../images/negative.svg);
       -webkit-mask-size: cover;
     }
@@ -426,7 +435,6 @@ html{
     background-color: $blue;
     margin:3px 0 0 0;
     & + .color_name{
-      line-height:20px;
       color:$blue;
     }
   }
@@ -437,7 +445,6 @@ html{
     background-color: $orange;
     margin:3px 0 0 0;
     & + .color_name{
-      line-height:20px;
       color:$orange;
     }
   }

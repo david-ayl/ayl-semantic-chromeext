@@ -18,6 +18,13 @@ $(document).on("click", "#launch-semantic", function() {
       $(".loader-container").removeClass("loading");
       $("#result-wrapper").show();
 
+      console.log(data);
+
+      if(data[Object.keys(data)[0]] == "invalid-url") {
+        $("#result-wrapper").empty().append("<span style='text-align:center;display:block;color:red;font-size:20px;line-height:70px;'>Unrecognized url</span>");
+
+        return;
+      }
 
       display_keywords(data.keywords);
       display_emotions(data.emotions);
@@ -109,8 +116,7 @@ var display_keywords = function(keywords) {
 var display_emotions = function(emotions) {
 
   if(emotions == "unsupported-text-language") {
-    var result_line = $("<div class='item'><span class='item_title'>Unsuppored text language</span></div>");
-    $("#emotions .result_wrapper").append(result_line);
+    $("#emotions").remove();
   }
   else{
     $("#emotions .result_wrapper").empty();
@@ -127,8 +133,7 @@ var display_emotions = function(emotions) {
 var display_concepts = function(concepts) {
 
   if(concepts == "unsupported-text-language") {
-    var result_line = $("<div class='item'><span class='item_title'>Unsuppored text language</span></div>");
-    $("#concepts .result_wrapper").append(result_line);
+    $("#concepts").remove();
   }
   else{
     concepts = concepts.slice(0, 5);
@@ -149,8 +154,7 @@ var display_concepts = function(concepts) {
 var display_entities = function(entities) {
 
   if(entities.length == 0) {
-    var result_line = $("<div class='item'><span class='item_title'>Unable to retrieve entities</span></div>");
-    $("#entities .result_wrapper").append(result_line);
+    $("#entities").remove();
   }
   else{
     entities = entities.slice(0, 5);
@@ -222,7 +226,7 @@ var countTo = function(target) {
       clearInterval(count);
     }
 
-    $(target).next(".percent_line").width(start + "px");
+    $(target).next(".percent_line").width(start + "%");
     $(target).text(start + "%");
 
     start ++;
