@@ -1,0 +1,222 @@
+#taxonomy{
+  .item_title{
+    padding : 0 0 0 25px;
+    background-repeat: no-repeat;
+    background-size: 17px 17px;
+    background-position: 0px 3px;
+  }
+}
+
+.item[data-taxonomy] .item_title{
+  background-image:url("../images/IAB-iab.png");
+}
+
+@mixin _arts_entertainment {
+  $list : art entertainment festival;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-arts-entertainment.svg");
+    }
+  }
+}
+@mixin _auto {
+  $list : auto motor car;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-arts-entertainment.svg");
+    }
+  }
+}
+@mixin _business {
+  $list : business industrial acquisition;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-business.svg");
+    }
+  }
+}
+@mixin _careers {
+  $list : careers job emplo;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-careers.svg");
+    }
+  }
+}
+@mixin _education {
+  $list : degree school graduation learn certif;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-education.svg");
+    }
+  }
+}
+@mixin _family {
+  $list : family parenting children;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-family-parenting.svg");
+    }
+  }
+}
+@mixin _food {
+  $list : food drink beverage pets pasta;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-food-drink.svg");
+    }
+  }
+}
+@mixin _health {
+  $list : health cure hospital doctor fitness disease aids hiv;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-health.svg");
+    }
+  }
+}
+@mixin _hobbies_interest {
+  $list : hobbie interest;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-hobbies-interest.svg");
+    }
+  }
+}
+@mixin _home_garden {
+  $list : home garden;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-home-garden.svg");
+    }
+  }
+}
+@mixin _man {
+  $list : man men;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-man.svg");
+    }
+  }
+}
+@mixin _news {
+  $list : news;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-news.svg");
+    }
+  }
+}
+@mixin _personal_finance {
+  $list : personal financ money earn;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-personal-finance.svg");
+    }
+  }
+}
+@mixin _pets {
+  $list : pet;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-pets.svg");
+    }
+  }
+}
+@mixin _real_estate {
+  $list : real estate property;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-real-estate.svg");
+    }
+  }
+}
+@mixin _science {
+  $list : science medicine;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-science.svg");
+    }
+  }
+}
+@mixin _shopping {
+  $list : shopping;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-shopping.svg");
+    }
+  }
+}
+@mixin _society {
+  $list : society govt politic law awards;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-society.svg");
+    }
+  }
+}
+@mixin _sport {
+  $list : sport foot soccer ball tennis golf;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-sports.svg");
+    }
+  }
+}
+@mixin _style-fashion {
+  $list : clothing style fashion clothing;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-style-fashion.svg");
+    }
+  }
+}
+@mixin _tech {
+  $list : computing technology;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-technology.svg");
+    }
+  }
+}
+@mixin _travel {
+  $list : travel trip airport plane;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-travel.svg");
+    }
+  }
+}
+@mixin _woman {
+  $list : woman girl female;
+  @each $IAB in $list{
+    .item[data-taxonomy*=#{$IAB}] .item_title{
+      background-image:url("../images/IAB-woman.svg");
+    }
+  }
+}
+
+@include _arts_entertainment();
+@include _auto();
+@include _business();
+@include _careers();
+@include _education();
+@include _family();
+@include _food();
+@include _health();
+@include _hobbies_interest();
+@include _home_garden();
+@include _man();
+@include _news();
+@include _tech();
+@include _personal_finance();
+@include _pets();
+@include _real_estate();
+@include _science();
+@include _shopping();
+@include _society();
+@include _sport();
+@include _style-fashion();
+@include _tech();
+@include _travel();
+@include _woman();

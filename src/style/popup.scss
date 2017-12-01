@@ -1,5 +1,6 @@
 @import "./parts/loader.scss";
 @import "./parts/colors.scss";
+@import "./parts/icon.scss";
 
 
 body{
@@ -514,24 +515,6 @@ html{
   }
 }
 
-.blue_theme{
-  .color_switcher_line.orange_color{
-    display:block;
-  }
-}
-.orange_theme{
-  .color_switcher_line.blue_color{
-    display:block;
-  }
-}
-.color_switcher_line.blue_color{
-  display:none!important;
-  float:right;
-}
-.color_switcher_line.orange_color{
-  display:none!important;
-  float:right;
-}
 .moon_line{
   color:$darkgrey;
 }
@@ -539,9 +522,16 @@ html{
   color:#ffffff;
 }
 .legal{
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
+  display:block;
+  width:50%;
+  float:right;
+}
+.ext_name{
+  font-weight:900;
+}
+.version{
+  font-size:10px;
+  font-family:sans-serif;
 }
 .icon{
   float:left;
