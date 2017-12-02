@@ -19,7 +19,7 @@ var path = {
     dest : 'dist/scripts'
   },
   css : {
-    src : ['src/style/*.scss', 'src/style/*/*.scss'],
+    src : ['src/style/*.scss'],
     dest : 'dist/style'
   },
   images : {

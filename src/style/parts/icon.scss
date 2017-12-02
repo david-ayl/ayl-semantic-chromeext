@@ -12,7 +12,7 @@
 }
 
 @mixin _arts_entertainment {
-  $list : art entertainment festival;
+  $list : art entertainment festival music cinema theatre television movies;
   @each $IAB in $list{
     .item[data-taxonomy*=#{$IAB}] .item_title{
       background-image:url("../images/IAB-arts-entertainment.svg");
@@ -68,7 +68,7 @@
   }
 }
 @mixin _health {
-  $list : health cure hospital doctor fitness disease aids hiv;
+  $list : health cure hospital doctor fitness disease aids hiv migraines;
   @each $IAB in $list{
     .item[data-taxonomy*=#{$IAB}] .item_title{
       background-image:url("../images/IAB-health.svg");
@@ -140,7 +140,7 @@
   }
 }
 @mixin _shopping {
-  $list : shopping;
+  $list : shopping stores christmas;
   @each $IAB in $list{
     .item[data-taxonomy*=#{$IAB}] .item_title{
       background-image:url("../images/IAB-shopping.svg");
@@ -172,7 +172,7 @@
   }
 }
 @mixin _tech {
-  $list : computing technology;
+  $list : computing computer monitors electronic photo camera technology software;
   @each $IAB in $list{
     .item[data-taxonomy*=#{$IAB}] .item_title{
       background-image:url("../images/IAB-technology.svg");
@@ -180,7 +180,7 @@
   }
 }
 @mixin _travel {
-  $list : travel trip airport plane;
+  $list : travel trip airport plane train taxi;
   @each $IAB in $list{
     .item[data-taxonomy*=#{$IAB}] .item_title{
       background-image:url("../images/IAB-travel.svg");
