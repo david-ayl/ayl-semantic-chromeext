@@ -52,8 +52,6 @@ popupIconEnv();
 var scripts = {
   popup : [
     './src/scripts/modules/jquery-3.1.1.min.js',
-    './src/scripts/modules/lodash-4.17.4.js',
-    './src/scripts/modules/main.js',
     './src/scripts/popup.js'
   ],
   options : [

@@ -11,10 +11,10 @@ $(document).ready(function() {
 
   colorSettings = JSON.parse(colorSettings);
 
-  if(colorSettings.theme == "dark_theme") {
+  if(colorSettings && colorSettings.theme && colorSettings.theme == "dark_theme") {
     $("body").removeClass("light_theme").addClass("dark_theme");
   }
-  else if(colorSettings.theme == "light_theme") {
+  else if(colorSettings && colorSettings.theme && colorSettings.theme == "light_theme") {
     $("body").removeClass("dark_theme").addClass("light_theme");
   }
 

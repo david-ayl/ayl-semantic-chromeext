@@ -60,7 +60,7 @@ body{
           color:$blue;
         }
         .percent_line{
-          background-color: $blue;
+          background-color: #ffffff;
         }
       }
     }
@@ -101,13 +101,13 @@ body{
       .item_line{
         border-color:$border;
         .percent_line{
-          background-color: $orange;
+          background-color: #ffffff;
         }
       }
     }
     .logo_dark{
       display:block;
-      border-color:#ffffff;
+      border-color:#199cb6;
     }
 
     // LOADER
