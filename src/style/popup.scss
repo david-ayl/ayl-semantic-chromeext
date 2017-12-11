@@ -2,13 +2,12 @@
 @import "./parts/colors.scss";
 @import "./parts/icon.scss";
 
-
 body{
   min-height:160px;
   transition-duration: 0.3s;
   padding:0;
   margin:0;
-  font-family:"Muli", sans-serif;
+  font-family:"Muli", serif;
   font-weight:lighter;
 
 
@@ -107,7 +106,7 @@ body{
     }
     .logo_dark{
       display:block;
-      border-color:#199cb6;
+      border-color:#ffffff;
     }
 
     // LOADER
@@ -321,7 +320,7 @@ html{
 }
 
 .title_wrapper{
-  font-family:"Muli";
+  font-family:"Muli" serif;
   margin:20px 0 10px 0;
   padding:2px 0 2px 5px;
   font-size:17px;
