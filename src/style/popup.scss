@@ -1,7 +1,6 @@
 @import "./parts/loader.scss";
 @import "./parts/colors.scss";
 @import "./parts/icon.scss";
-@import "./parts/fonts.scss";
 
 body{
   min-height:160px;
@@ -27,7 +26,7 @@ body{
       .item_result{
         color:$blue;
       }
-      #launch-semantic{
+      #launch-semantic, #csv_download{
         border-color: $blue;
         color: $blue;
         &:hover{
@@ -60,7 +59,7 @@ body{
           color:$blue;
         }
         .percent_line{
-          background-color: $blue;
+          background-color: #ffffff;
         }
       }
     }
@@ -71,7 +70,7 @@ body{
       .item_result{
         color:$orange;
       }
-      #launch-semantic{
+      #launch-semantic, #csv_download{
         border-color: $orange;
         color: $orange;
         &:hover{
@@ -101,7 +100,7 @@ body{
       .item_line{
         border-color:$border;
         .percent_line{
-          background-color: $orange;
+          background-color: #ffffff;
         }
       }
     }
@@ -140,7 +139,7 @@ body{
       .item_result{
         color:$blue;
       }
-      #launch-semantic{
+      #launch-semantic, #csv_download{
         border-color: $blue;
         color: $blue;
         &:hover{
@@ -184,7 +183,7 @@ body{
       .item_result{
         color:$orange;
       }
-      #launch-semantic{
+      #launch-semantic, #csv_download{
         border-color: $orange;
         color: $orange;
         &:hover{
@@ -238,6 +237,16 @@ body{
 
 }
 
+#csv_download{
+  display:none;
+  margin:80px auto 0px auto;
+}
+#result-wrapper[style*="block"]{
+  #csv_download{
+    display:block;
+  }
+}
+
 html{
   width:285px;
   min-height:200px;
@@ -283,7 +292,7 @@ html{
   padding:0 0 80px 0;
 }
 
-#launch-semantic{
+#launch-semantic, #csv_download{
   border-style:solid;
   border-width:1px;
   background-color:transparent;
@@ -425,7 +434,7 @@ html{
   width: 100%;
   left: 0;
   box-sizing: border-box;
-  padding: 10px 30px 10px 30px;
+  padding: 10px 30px 0 30px;
   transition-duration:0.3s;
 }
 .icon{
@@ -456,8 +465,8 @@ html{
   .color_name{
     float:left;
     padding:0 0 0 7px;
-    font-size:12px;
-    line-height:24px;
+    font-size:16px;
+    line-height:16px;
     transition-duration:0.3s;
   }
   &:after{
@@ -525,15 +534,13 @@ html{
   display:block;
   width:50%;
   float:right;
-  line-height:24px;
-  font-size:12px;
 }
 .ext_name{
   font-weight:900;
 }
 .version{
-  font-size:12px;
-  font-family:"Muli", sans-serif;
+  font-size:10px;
+  font-family:sans-serif;
 }
 .icon{
   float:left;
