@@ -143,6 +143,7 @@ $(document).on("click", "#launch-semantic", function() {
       $("#csv_download").closest("a").attr({
         "style" : "text-decoration:none;",
         "href": "data:text.csv;charset=utf-8," + JSONToCSV(CSVdata, pageURL, analysisDate),
+        "target" : "_blank",
         "download" : "adyoulike_semantic.csv"
       })
 
