@@ -24,13 +24,13 @@ $(document).on("click", "#launch-semantic", function() {
 
 
 
-  $(".loader-container").addClass("loading");
-  $("#launch-semantic").hide();
-
 
   chrome.tabs.getSelected(null, function(tab) {
     var tablink = tab.url;
     tablink = encodeURIComponent(tablink);
+
+    $("#launch-semantic").hide();
+    $(".loader-container").addClass("loading");
 
     $.get("http://ai.ayl.io/call?url=" + tablink, function(data) {
 
@@ -157,6 +157,11 @@ $(document).on("click", "#launch-semantic", function() {
           }
 
         })
+
+      })
+      .fail(function() {
+
+        $(".loader-container").addClass("is_errored");
 
       });
 
