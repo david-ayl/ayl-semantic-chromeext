@@ -32,8 +32,7 @@ $(document).on("click", "#launch-semantic", function() {
     $("#launch-semantic").hide();
     $(".loader-container").addClass("loading");
 
-    //$.get("http://ai.ayl.io/call?url=" + tablink, function(data) {
-    $.get("http://127.0.0.1:5000/call?url=" + tablink, function(data) {
+    $.get("http://ai.ayl.io/call?url=" + tablink, function(data) {
 
       data = JSON.parse(data);
 
