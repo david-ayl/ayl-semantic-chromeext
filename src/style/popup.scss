@@ -2,6 +2,15 @@
 @import "./parts/colors.scss";
 @import "./parts/icon.scss";
 
+html::webkit-scrollbar{
+  width: 4px;
+}
+html::webkit-scrollbar-thumb{
+  background: #199cb6;
+}
+html::webkit-scrollbar-track{
+  background: #000000;
+}
 body{
   min-height:160px;
   transition-duration: 0.3s;
@@ -385,6 +394,14 @@ html{
 .item_title{
   width:70%;
   word-wrap:break-word;
+  .iab_subcat{
+    display: block;
+    max-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: nowrap;
+  }
 }
 .item_result{
   width:30%;

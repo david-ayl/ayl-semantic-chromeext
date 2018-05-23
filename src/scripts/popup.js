@@ -32,9 +32,11 @@ $(document).on("click", "#launch-semantic", function() {
     $("#launch-semantic").hide();
     $(".loader-container").addClass("loading");
 
-    $.get("http://ai.ayl.io/call?url=" + tablink, function(data) {
+    //$.get("http://ai.ayl.io/call?url=" + tablink, function(data) {
+    $.get("http://127.0.0.1:5000/call?url=" + tablink, function(data) {
 
       data = JSON.parse(data);
+
       $(".loader-container").removeClass("loading");
       $("#result-wrapper").show();
 
@@ -44,21 +46,21 @@ $(document).on("click", "#launch-semantic", function() {
       }
 
       display_keywords(data.keywords);
-      display_emotions(data.emotions);
+      display_emotions(data.emotion);
       display_concepts(data.concepts);
       display_entities(data.entities);
-      display_taxonomy(data.taxonomy);
+      display_categories(data.categories);
 
       var CSVdata = {};
       CSVdata["emotions"] = [];
-      Object.keys(data.emotions).forEach(function(key) {
+      Object.keys(data.emotion.document.emotion).forEach(function(key) {
         var s = [];
         s.push(key);
-        s.push(percent(data.emotions[key], "%"));
+        s.push(percent(data.emotion.document.emotion[key], "%"));
         CSVdata["emotions"].push(s);
       })
       CSVdata["iab"] = [];
-      data.taxonomy.forEach(function(obj) {
+      data.categories.forEach(function(obj) {
         var a = [];
         a.push(obj.label);
         a.push(percent(obj.score, "%"));
@@ -210,23 +212,24 @@ var display_keywords = function(keywords) {
     resultRelevance = percent(resultRelevance, "");
     var resultSentiment;
     if(keywords[i].hasOwnProperty("sentiment")) {
-      resultSentiment = keywords[i].sentiment.type;
+      resultSentiment = keywords[i].sentiment.label;
     }
     else {
       resultSentiment = "";
     }
+
     var result_line = $("<div class='item'><div class='item_line' data-smiley-color='" + resultSentiment + "'><span class='item_title'>" + resultText + "</span><span class='item_result' data-percent='" + resultRelevance + "'>0</span><span class='percent_line'></span></div><div class='sentiment_line'><span class='item_sentiment' data-smiley='" + resultSentiment + "'>" + resultSentiment + " sentiment</span></div></div>");
     $("#keywords .result_wrapper").append(result_line);
   }
 
 }
 
-var display_emotions = function(emotions) {
+var display_emotions = function(emotion) {
 
-  if(emotions == "unsupported-text-language") {
-    $("#emotions").remove();
-  }
-  else{
+  var emotions;
+
+  if(emotion && emotion.document && emotion.document.emotion) {
+    emotions = emotion.document.emotion;
     $("#emotions .result_wrapper").empty();
 
     for(prop in emotions) {
@@ -234,6 +237,9 @@ var display_emotions = function(emotions) {
       var result_line = $("<div class='item'><div class='item_line'><span class='item_title'>" + prop + "</span><span class='item_result' data-percent='" + result + "'>0</span><span class='percent_line'></span></div></div>");
       $("#emotions .result_wrapper").append(result_line);
     };
+  }
+  else {
+    $("#emotions").remove();
   }
 
 }
@@ -281,22 +287,31 @@ var display_entities = function(entities) {
 
 }
 
-var display_taxonomy = function(taxonomy) {
+var display_categories = function(taxonomy) {
 
   $("#taxonomy .result-wrapper").empty();
 
   for(var i in taxonomy) {
     var resultLabel = taxonomy[i].label;
+    resultLabel = resultLabel.replace(/^\/$/, "");
+    resultLabel = resultLabel.split("/");
     var resultScore = taxonomy[i].score;
     resultScore = percent(resultScore, "");
-    var result_line = $("<div class='item' data-taxonomy='" + resultLabel + "'><div class='item_line'><span class='item_title'>" + resultLabel + "</span><span class='item_result' data-percent='" + resultScore + "'>0</span><span class='percent_line'></span></div></div>");
+    var result_line = $("<div class='item' data-taxonomy='" + taxonomy[i].label + "'><div class='item_line'><span class='item_title'></span><span class='item_result' data-percent='" + resultScore + "'>0</span><span class='percent_line'></span></div></div>");
     $("#taxonomy .result_wrapper").append(result_line);
+
+    for (var j = 0; j < resultLabel.length; j++) {
+      result_line.find(".item_title").append($("<span title='" + resultLabel[j] + "' class='iab_subcat'>" + resultLabel[j] + "</span>"));
+    }
+
   }
 
 }
 
 
 var percent = function(number, unit) {
+
+  number = number.toString();
 
   if(number.match(/^[+-]?\d+(\.\d+)?$/)) {
     var _unit;
